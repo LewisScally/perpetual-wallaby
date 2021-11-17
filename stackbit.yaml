@@ -1,0 +1,172 @@
+stackbitVersion: ~0.3.0
+ssgName: hugo
+publishDir: public
+dataDir: data
+pagesDir: content
+assets:
+  referenceType: static
+  staticDir: static
+  uploadDir: assets
+  publicPath: /
+models:
+  page_1:
+    type: page
+    label: Page 1
+    match:
+      - en/_index.md
+      - en/versions.md
+      - en/blog/_index.md
+      - en/blog/say-hello-to-doks/index.md
+      - en/docs/_index.md
+      - nl/_index.md
+      - nl/docs/_index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: string
+        name: lead
+        label: Lead
+      - type: datetime
+        name: date
+        label: Date
+      - type: datetime
+        name: lastmod
+        label: Lastmod
+      - type: boolean
+        name: draft
+        label: Draft
+      - type: list
+        name: images
+        label: Images
+        items:
+          type: image
+      - type: string
+        name: layout
+        label: Layout
+      - type: string
+        name: url
+        label: Url
+      - type: number
+        name: weight
+        label: Weight
+        subtype: int
+      - type: list
+        name: contributors
+        label: Contributors
+        items:
+          type: string
+  page_2:
+    type: page
+    label: Page 2
+    match:
+      - en/contact/index.md
+      - en/contributors/_index.md
+      - en/contributors/henk-verlinde/_index.md
+      - en/privacy-policy/index.md
+      - nl/contact/index.md
+      - nl/contributors/_index.md
+      - nl/contributors/henk-verlinde/_index.md
+      - nl/privacy-policy/index.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: datetime
+        name: date
+        label: Date
+      - type: datetime
+        name: lastmod
+        label: Lastmod
+      - type: boolean
+        name: draft
+        label: Draft
+  page_3:
+    type: page
+    label: Page 3
+    match:
+      - en/docs/help/_index.md
+      - en/docs/help/faq.md
+      - en/docs/help/how-to-update.md
+      - en/docs/help/troubleshooting.md
+      - en/docs/prologue/_index.md
+      - en/docs/prologue/commands.md
+      - en/docs/prologue/introduction.md
+      - en/docs/prologue/quick-start.md
+      - nl/docs/help/_index.md
+      - nl/docs/help/faq.md
+      - nl/docs/help/how-to-update.md
+      - nl/docs/help/troubleshooting.md
+      - nl/docs/prologue/_index.md
+      - nl/docs/prologue/commands.md
+      - nl/docs/prologue/introduction.md
+      - nl/docs/prologue/quick-start.md
+    fields:
+      - type: string
+        name: title
+        label: Title
+      - type: string
+        name: description
+        label: Description
+      - type: string
+        name: lead
+        label: Lead
+      - type: datetime
+        name: date
+        label: Date
+      - type: datetime
+        name: lastmod
+        label: Lastmod
+      - type: boolean
+        name: draft
+        label: Draft
+      - type: object
+        name: menu
+        label: Menu
+        fields:
+          - type: object
+            name: docs
+            label: Docs
+            fields:
+              - type: string
+                name: parent
+                label: Parent
+      - type: number
+        name: weight
+        label: Weight
+        subtype: int
+      - type: boolean
+        name: toc
+        label: Toc
+  docs_versions:
+    type: data
+    label: Docs Versions
+    file: docs-versions.yml
+    isList: true
+    items:
+      type: object
+      fields:
+        - type: string
+          name: group
+          label: Group
+        - type: string
+          name: baseurl
+          label: Baseurl
+        - type: string
+          name: description
+          label: Description
+        - type: list
+          name: versions
+          label: Versions
+          items:
+            type: object
+            fields:
+              - type: string
+                name: v
+                label: V
